@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <bean id="RedisClient" class="redis.RedisClient" />
+    <bean id="Jwt" class="rsa.Jwt"/>
+    <bean id="Rsa" class="rsa.Rsa"/>
+
+    <!-- 自动加载属性配置文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <bean id="dataSourceMySql" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="url" value="${mysql.url}"/>
+        <property name="driverClassName" value="${mysql.driver}"/>
+        <property name="username" value="${mysql.username}"/>
+        <property name="password" value="${mysql.password}"/>
+
+        <property name="poolPreparedStatements" value="${dbcp2.poolPreparedStatements}"/>
+        <property name="maxOpenPreparedStatements" value="${dbcp2.maxOpenPreparedStatements}"/>
+        <property name="maxTotal" value="${dbcp2.maxTotal}"></property>
+        <property name="maxIdle" value="${dbcp2.maxIdle}"/>
+        <property name="minIdle" value="${dbcp2.minIdle}"/>
+        <property name="initialSize" value="${dbcp2.initialSize}"/>
+        <property name="maxWaitMillis" value="${dhcp2.maxWaitMillis}"/>
+        <!--<property name="validationQuery" value="${dbcp2.validationQuery}"/>-->
+        <property name="testOnBorrow" value="${dbcp2.testOnBorrow}"/>
+        <property name="testOnReturn" value="${dbcp2.testOnReturn}"/>
+        <property name="testWhileIdle" value="${dbcp2.testWhileIdle}"/>
+        <property name="timeBetweenEvictionRunsMillis" value="${dbcp2.timeBetweenEvictionRunsMillis}"/>
+    </bean>
+    <bean id="sessionFactoryMySql"  class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+          p:dataSource-ref="dataSourceMySql" p:mappingLocations="classpath*:/model/*.hbm*.xml">
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialectmy}</prop>
+                <prop key="hibernate.current_session_context_class">
+                    org.springframework.orm.hibernate4.SpringSessionContext
+                </prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

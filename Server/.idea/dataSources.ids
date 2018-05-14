@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - wzq@localhost" uuid="024a0429-1eed-4820-a92c-685da1c7fcf4">
+    <database-info product="MySQL" version="5.7.19-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.42 ( Revision: 1f61b0b0270d9844b006572ba4e77f19c0f230d4 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="wzq"/>
+      <table id="2" parent="1" name="user"/>
+      <column id="3" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="4" parent="2" name="USER_NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="5" parent="2" name="PASSWD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="6" parent="2" name="CREATE_TIME">
+        <data-type>datetime</data-type>
+      </column>
+      <key id="7" parent="2" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+  <data-source name="MySQL - BeiChen@61.164.218.155" uuid="d1a6fd9d-17eb-4237-9784-c3491c1a3c02">
+    <database-info product="MySQL" version="5.6.38" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.42 ( Revision: 1f61b0b0270d9844b006572ba4e77f19c0f230d4 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="BeiChen"/>
+      <table id="2" parent="1" name="USER"/>
+      <column id="3" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="4" parent="2" name="NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="5" parent="2" name="PASSWD">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="6" parent="2" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

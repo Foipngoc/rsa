@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="WuZQServer:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/WuZQServer_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Server/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Server" />
+          <element id="dir-copy" path="$PROJECT_DIR$/config" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring MVC-4.3.12.RELEASE" />
+          <element id="library" level="project" name="Spring-4.3.12.RELEASE" />
+          <element id="library" level="project" name="jjwt-0.10.0-SNAPSHOT" />
+          <element id="library" level="project" name="jedis-3.0.0-SNAPSHOT" />
+          <element id="library" level="project" name="commons-dbcp2-2.1.1" />
+          <element id="library" level="project" name="Hibernate 5.2.12-5.2.12" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
